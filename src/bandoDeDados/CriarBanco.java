@@ -19,7 +19,6 @@ public class CriarBanco {
             e.printStackTrace();
             System.out.println("Erro ao conectar no Banco de Dados...");
             System.out.println("tipo de erro: " + e.getMessage());
-
         }
 
     }
