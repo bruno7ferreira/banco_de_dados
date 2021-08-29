@@ -8,7 +8,7 @@ public class ConexaoBancoDeDados {
 
     public static void main(String[] args) throws SQLException {
 
-        final String url = "jdbc:mysql://localhost:3306"; //Criando conexão com banco de dados
+        final String url = "jdbc:mysql://localhost:3306/wm"; //Criando conexão com banco de dados
         final String usuario = "root"; // criando senha do banco de dados
         final String senha = "f3rr31r4"; // criando usuário do banco de dados
 
