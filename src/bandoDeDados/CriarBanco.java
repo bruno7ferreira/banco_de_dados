@@ -9,18 +9,18 @@ public class CriarBanco {
 
     public static void main(String[] args) throws SQLException {
 
-        final String url = "jdbc:mysql://localhost:3306/br";
+        final String url = "jdbc:mysql://localhost:3306";
         final String usuario = "root";
         final String senha = "f3rr31r4";
 
-        Connection conexao = null;
-
-        conexao = DriverManager.getConnection(url, usuario, senha);
+        Connection conexao = DriverManager.getConnection(url, usuario, senha);
         System.out.println("Conexão ao banco de dados realizada com sucesso!");
 
         Statement stmt = conexao.createStatement();
-        stmt.execute("create database curso_java");
+
+        stmt.execute("create database if not exists curso_java");
         System.out.println("Banco criado com sucesso!");
+
 
         conexao.close();
     }
