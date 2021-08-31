@@ -16,8 +16,8 @@ public class CriarBanco {
         Connection conexao = DriverManager.getConnection(url, usuario, senha);
         System.out.println("Conexão ao banco de dados realizada com sucesso!");
 
-        Statement stmt = conexao.createStatement();
 
+        Statement stmt = conexao.createStatement();
         stmt.execute("create database if not exists curso_java");
         System.out.println("Banco criado com sucesso!");
 
