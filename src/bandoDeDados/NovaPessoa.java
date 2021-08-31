@@ -18,8 +18,9 @@ public class NovaPessoa {
         String sql = "insert into pessoas (nome) values(?)"; //adicionando valor da variavel no banco de dados
         PreparedStatement stmt = conexao.prepareStatement(sql);
         stmt.setString(1, nome); //parametro de entrada da variavel para o sql
-        stmt.execute();
 
+        stmt.execute();
+        System.out.println("Pessoa incluida com sucesso!");
 
         entrada.close();
     }
