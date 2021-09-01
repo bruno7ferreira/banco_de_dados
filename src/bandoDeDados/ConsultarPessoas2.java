@@ -1,22 +1,31 @@
 package bandoDeDados;
 
+
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class ConsultarPessoas2 {
 
     public static void main(String[] args) throws SQLException {
+        Scanner entrada = new Scanner(System.in);
 
-        //criar conexão
+        //criando conexão e query
         Connection conexao = FabricaConexao.getConexao();
-        String sql = "select * from pessoas";
+        String sql = "select * from pessoas where nome like ?";
 
-        Statement demonstracao = conexao.createStatement();
-        ResultSet resultado = demonstracao.executeQuery(sql);
+        //recebendo valor da consulta
+        System.out.println("Informe o valor para pesquisa: ");
+        String valor = entrada.nextLine();
+
+        //criado o parametro da consulta
+        PreparedStatement demonstracao = conexao.prepareStatement(sql);
+        demonstracao.setString(1, "%" + valor + "%");
+        ResultSet resultado = demonstracao.executeQuery();
 
         List<Pessoa> pessoas = new ArrayList<>();
         while (resultado.next()) {
@@ -30,6 +39,7 @@ public class ConsultarPessoas2 {
 
         demonstracao.close();
         conexao.close();
+        entrada.close();
 
 
     }
