@@ -41,6 +41,5 @@ public class ConsultarPessoas2 {
         conexao.close();
         entrada.close();
 
-
     }
 }
