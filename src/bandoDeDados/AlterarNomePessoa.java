@@ -24,7 +24,6 @@ public class AlterarNomePessoa {
         if (resultado.next()) {
             Pessoa p = new Pessoa(resultado.getInt(1), resultado.getString(2));
         }
-
         conexao.close();
         entrada.close();
     }
