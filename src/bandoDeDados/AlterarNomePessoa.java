@@ -27,6 +27,7 @@ public class AlterarNomePessoa {
             Pessoa p = new Pessoa(resultado.getInt(1), resultado.getString(2));
 
             System.out.println("O nome atual é " + p.getNome());
+            entrada.nextLine();//colocado apenas para saltar uma linha na execução
 
             System.out.println("Informe o novo nome: ");
             String novoNome = entrada.nextLine();
@@ -35,11 +36,13 @@ public class AlterarNomePessoa {
             declaracaoPreparada = conexao.prepareStatement(update);
             declaracaoPreparada.setString(1, novoNome);//definindo parametro da declaração SQL
             declaracaoPreparada.setInt(2, codigo);//definindo parametro da declaração SQL
+            declaracaoPreparada.execute();//para executar a alteração no banco de dados
 
+            System.out.println("Pessoa alterada com sucesso!");
+        } else {
+            System.out.println("Pessoa não encontrada!");
         }
-
         conexao.close();
         entrada.close();
     }
-
 }
