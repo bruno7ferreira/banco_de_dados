@@ -15,14 +15,27 @@ public class AlterarNomePessoa {
         System.out.println("Informe o código da Pessoa: ");
         int codigo = entrada.nextInt();
 
-        String sql = "select codigo, nome from pessoas where codigo = ?"; //Comando SQL
+        String select = "select codigo, nome from pessoas where codigo = ?"; //Comando SQL
+        String update = "update pessoas set nome= ? where codigo = ?"; //comando SQL
         Connection conexao = FabricaConexao.getConexao();// criando conexao com banco de dados
-        PreparedStatement declaracaoPreparada = conexao.prepareStatement(sql);//preparação para receber linha de comando SQL
+        PreparedStatement declaracaoPreparada = conexao.prepareStatement(select);/*preparação para  receber linha
+         de comando SQL*/
         declaracaoPreparada.setInt(1, codigo);//tipo de dado recebido na declaração
         ResultSet resultado = declaracaoPreparada.executeQuery(); // resultado da query sql
 
         if (resultado.next()) {
             Pessoa p = new Pessoa(resultado.getInt(1), resultado.getString(2));
+
+            System.out.println("O nome atual é " + p.getNome());
+
+            System.out.println("Informe o novo nome: ");
+            String novoNome = entrada.nextLine();
+
+            declaracaoPreparada.close();
+            declaracaoPreparada = conexao.prepareStatement(update);
+            declaracaoPreparada.setString(1, novoNome);//definindo parametro da declaração SQL
+            declaracaoPreparada.setInt(2, codigo);//definindo parametro da declaração SQL
+
         }
 
         conexao.close();
