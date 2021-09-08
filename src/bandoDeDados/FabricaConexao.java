@@ -30,7 +30,7 @@ public class FabricaConexao {
     private static Properties getProperties() throws IOException {
         //criando acesso ao arquivo de configuraçoes
         Properties prop = new Properties();
-        String caminho = "/conexao.properties";
+        String caminho = "C:\\Users\\broge\\Desktop\\banco de dados java";
         prop.load(FabricaConexao.class.getResourceAsStream(caminho));
         return prop;
     }
