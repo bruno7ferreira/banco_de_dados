@@ -4,7 +4,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
-public class Teste {
+public class PropertiesExterno {
 
     public static Properties getProperties() throws IOException {
         Properties props = new Properties();
@@ -19,7 +19,7 @@ public class Teste {
         String login;
         String host;
         String passaword;
-        System.out.println("**Teste de leitura de arquivo de configuração externo**");
+        System.out.println("**PropertiesExterno de leitura de arquivo de configuração externo**");
 
         Properties prop = getProperties();
 
