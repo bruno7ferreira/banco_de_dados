@@ -16,6 +16,7 @@ public class FabricaConexao {
             final String usuario = prop.getProperty("banco.usuario");
             final String senha = prop.getProperty("banco.senha");
 
+//            CONEXAO COM BANCO DE DADOS, CONFIGURANDO DENTRO DO CODIGO JAVA
 //            final String url = "jdbc:mysql://localhost:3306/curso_java"; //url do banco de dados
 //            final String usuario = "root"; // usuario do banco de dados
 //            final String senha = "f3rr31r4";// senha do banco de dados
@@ -30,7 +31,7 @@ public class FabricaConexao {
     private static Properties getProperties() throws IOException {
         //criando acesso ao arquivo de configuraçoes
         Properties prop = new Properties();
-        String caminho = "C:\\Users\\broge\\Desktop\\banco de dados java";
+        String caminho = "/conexao.properties";
         prop.load(FabricaConexao.class.getResourceAsStream(caminho));
         return prop;
     }
