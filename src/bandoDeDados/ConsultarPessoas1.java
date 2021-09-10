@@ -27,7 +27,6 @@ public class ConsultarPessoas1 {
         for (Pessoa p : pessoas) {
             System.out.println(p.getCodigo() + " --> " + p.getNome());
         }
-
         stmt.close();
         conexao.close();
     }
