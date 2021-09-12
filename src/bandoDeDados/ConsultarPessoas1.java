@@ -23,7 +23,6 @@ public class ConsultarPessoas1 {
             String nome = resultado.getString("nome");
             pessoas.add(new Pessoa(codigo, nome));
         }
-
         for (Pessoa p : pessoas) {
             System.out.println(p.getCodigo() + " --> " + p.getNome());
         }
