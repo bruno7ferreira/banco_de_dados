@@ -28,6 +28,7 @@ public class ConsultarPessoas1 {
             System.out.println(p.getCodigo() + " --> " + p.getNome());
         }
 
+
         stmt.close();
         conexao.close();
     }
