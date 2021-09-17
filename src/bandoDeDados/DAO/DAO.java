@@ -10,7 +10,6 @@ public class DAO {
         if (conexao != null){
 
         }
-
     }
 
 }
