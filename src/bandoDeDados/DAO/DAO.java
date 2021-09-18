@@ -8,7 +8,6 @@ public class DAO {
 
     private Connection getConexao() {
         if (conexao != null){
-
         }
     }
 
