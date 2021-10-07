@@ -23,6 +23,5 @@ public class NovaPessoa {
         System.out.println("Pessoa incluida com sucesso!");
 
         entrada.close();
-
     }
 }
