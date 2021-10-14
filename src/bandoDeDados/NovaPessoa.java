@@ -24,5 +24,6 @@ public class NovaPessoa {
 
         entrada.close();
 
+
     }
 }
