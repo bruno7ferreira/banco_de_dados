@@ -6,7 +6,7 @@ public class DAO {
 
     private Connection conexao;
 
-    private Connection getConexao() {
+    private void getConexao() {
         if (conexao != null){
 
         }
