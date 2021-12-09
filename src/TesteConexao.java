@@ -11,7 +11,7 @@ public class TesteConexao {
         final String senha = "f3rr31r4";
 
         Connection conexao = DriverManager.getConnection(url, usuario, senha);
-
+        System.out.println("Conexão realizada com sucesso!");
 
 
         conexao.close();
