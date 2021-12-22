@@ -18,7 +18,7 @@ public class NovaPessoa {
 
         String sql = "insert into pessoas (nome) values(?)";
         PreparedStatement declaracaoPreparada = conexao.prepareStatement(sql);
-        declaracaoPreparada.setString(1, nome );
+        declaracaoPreparada.setString(1, nome);
 
         declaracaoPreparada.execute();
         System.out.println("Pessoa incluída com sucesso!");
