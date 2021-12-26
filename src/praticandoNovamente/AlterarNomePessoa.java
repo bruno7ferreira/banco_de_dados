@@ -18,9 +18,9 @@ public class AlterarNomePessoa {
         System.out.println("Informe o código da pessoa: ");
         int codigo = entrada.nextInt();
 
-        String select = "select  * from pessoas where ";
-        String update = "update pessoas set nome = ? where codigo = ?";
-        PreparedStatement declaraPreparada = conexao.prepareStatement(select);
+        String selectSQL = "select  * from pessoas where ";
+        String updateSQL = "update pessoas set nome = ? where codigo = ?";
+        PreparedStatement declaraPreparada = conexao.prepareStatement(selectSQL);
         declaraPreparada.setInt(1, codigo);
         ResultSet resultado = declaraPreparada.executeQuery();
 
@@ -35,7 +35,7 @@ public class AlterarNomePessoa {
 
 
             declaraPreparada.close();
-            declaraPreparada = conexao.prepareStatement(update);
+            declaraPreparada = conexao.prepareStatement(updateSQL);
             declaraPreparada.setString(1, novoNome);
             declaraPreparada.setInt(2, codigo);
             declaraPreparada.execute();
