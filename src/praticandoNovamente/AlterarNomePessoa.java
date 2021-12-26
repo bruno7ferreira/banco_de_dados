@@ -28,6 +28,7 @@ public class AlterarNomePessoa {
             Pessoa1 cont = new Pessoa1(resultado.getInt(1), resultado.getString(2));
 
             System.out.println("O nome atual é " + cont.getNome());
+            entrada.nextLine();
 
             System.out.println("Informe o novo nome: ");
             String novoNome = entrada.nextLine();
