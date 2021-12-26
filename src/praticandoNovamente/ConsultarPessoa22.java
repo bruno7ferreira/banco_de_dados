@@ -11,10 +11,12 @@ public class ConsultarPessoa22 {
     public static void main(String[] args) throws SQLException {
 
         Scanner entrada = new Scanner(System.in);//Scanner
+        System.out.println("Informe o valor para pesquisa: ");
+        String valor = entrada.nextLine();
 
         Connection conexao = FabricaConexao.getConexao();//conexao
         String sql = "select * from pessoas where nome like ?";//sql
-        String valor = entrada.nextLine();
+
 
         PreparedStatement declaracaoPreparada = conexao.prepareStatement(sql);
         declaracaoPreparada.setString(1, "%" + valor + "%");
