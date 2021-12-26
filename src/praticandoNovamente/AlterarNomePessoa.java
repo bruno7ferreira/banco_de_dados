@@ -41,6 +41,8 @@ public class AlterarNomePessoa {
             declaraPreparada.execute();
 
             System.out.println("Pessoa alterada com sucesso!");
+        } else {
+            System.out.println("Pessoa não encontrada!");
         }
 
 
