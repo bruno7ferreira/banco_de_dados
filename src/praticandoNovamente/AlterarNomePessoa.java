@@ -38,6 +38,7 @@ public class AlterarNomePessoa {
             declaraPreparada = conexao.prepareStatement(update);
             declaraPreparada.setString(1, novoNome);
             declaraPreparada.setInt(2, codigo);
+            declaraPreparada.execute();
 
             System.out.println("Pessoa alterada com sucesso!");
         }
