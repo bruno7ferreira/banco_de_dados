@@ -17,9 +17,13 @@ public class ExcluirPessoa {
 
         String excluirSQL = "delete from pessoas where codigo = ?";
         PreparedStatement declaracaoPreparada = conexao.prepareStatement(excluirSQL);
-        declaracaoPreparada.setInt(1,codigo);
+        declaracaoPreparada.setInt(1, codigo);
 
-        if (declaracaoPreparada.executeUpdate())
+        if (declaracaoPreparada.executeUpdate() > 0) {
+            System.out.println("Pessoa excluída com sucesso!");
+        } else {
+            System.out.println("Nenhuma alteração realizada");
+        }
 
 
         conexao.close();
