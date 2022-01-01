@@ -1,6 +1,8 @@
 package praticandoNovamente;
 
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -27,8 +29,9 @@ public class FabricaConexao {
 
     private static Properties getProperties() throws IOException {
         Properties prop = new Properties();
-        String caminho = "/conexao.properties";
-        prop.load(FabricaConexao.class.getResourceAsStream(caminho));
+        String caminho = System.getProperty("user.home")+"/Desktop/conexao.properties";
+        InputStream stream = new FileInputStream(caminho);
+        prop.load(stream);
         return prop;
     }
 
