@@ -12,9 +12,9 @@ public class FabricaConexao {
 
         try {
             Properties prop = getProperties();
-            final String url = "jdbc:mysql://localhost:3306/curso_java14";
-            final String usuario = "root";
-            final String senha = "f3rr31r4";
+            final String url = prop.getProperty("banco.url");
+            final String usuario = prop.getProperty("banco.usuario");
+            final String senha = prop.getProperty("banco.senha");
 
             return DriverManager.getConnection(url, usuario, senha);
         } catch (SQLException | IOException e) {
