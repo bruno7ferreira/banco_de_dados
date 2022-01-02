@@ -29,7 +29,7 @@ public class FabricaConexao {
 
     private static Properties getProperties() throws IOException {
         Properties prop = new Properties();
-        String caminho = System.getProperty("user.home")+"/Desktop/conexao.properties";
+        String caminho = System.getProperty("user.home")+"/IdeaProjects/conexao2.properties";
         InputStream stream = new FileInputStream(caminho);
         prop.load(stream);
         return prop;
