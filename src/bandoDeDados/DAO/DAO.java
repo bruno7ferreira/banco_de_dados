@@ -12,13 +12,27 @@ public class DAO {
 
     private int incluir(String sql, Object... atributos) {
         try {
-            PreparedStatement declaracaoPreparada = getConexao().prepareStatement(sql);
-
+            PreparedStatement declaracaoPreparada = getConexao().prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
+            adicionarAtributos(declaracaoPreparada, atributos);
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
     }
+
+    private void adicionarAtributos(PreparedStatement declaracaoPreparada, Object[] atributos) throws SQLException {
+        int indice = 1;
+        for (Object atributo : atributos) {
+            if (atributo instanceof String) {
+                declaracaoPreparada.setString(indice, (String) atributo);
+            } else if (atributo instanceof Integer) {
+                declaracaoPreparada.setInt(indice, (Integer) atributo);
+            }
+
+            indice++;
+        }
+    }
+
 
     private Connection getConexao() {
         try {
