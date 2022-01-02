@@ -4,6 +4,7 @@ import praticandoNovamente.FabricaConexao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class DAO {
@@ -14,8 +15,15 @@ public class DAO {
         try {
             PreparedStatement declaracaoPreparada = getConexao().prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
             adicionarAtributos(declaracaoPreparada, atributos);
+            if (declaracaoPreparada.executeUpdate() > 0) {
+                ResultSet resultado = declaracaoPreparada.getGeneratedKeys();
+                if (resultado.next()) {
+                    return resultado.getInt(1);
+                }
+            }
+            return -1;
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
 
     }
