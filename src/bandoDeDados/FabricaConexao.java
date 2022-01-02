@@ -1,6 +1,8 @@
 package bandoDeDados;
 
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -32,7 +34,8 @@ public class FabricaConexao {
         //criando acesso ao arquivo de configuraçoes
         Properties prop = new Properties();
         String caminho = System.getProperty("user.home")+"/IdeaProjects/conexao.properties";
-        prop.load(FabricaConexao.class.getResourceAsStream(caminho));
+        InputStream stream = new FileInputStream(caminho);
+        prop.load(stream);
         return prop;
     }
 }

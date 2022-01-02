@@ -1,6 +1,6 @@
 package bandoDeDados.DAO;
 
-import praticandoNovamente.FabricaConexao;
+import bandoDeDados.FabricaConexao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
