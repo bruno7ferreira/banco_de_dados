@@ -11,7 +11,7 @@ public class DAO {
 
     private Connection conexao;
 
-    private int incluir(String sql, Object... atributos) {
+    protected int incluir(String sql, Object... atributos) {
         try {
             PreparedStatement declaracaoPreparada = getConexao().prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
             adicionarAtributos(declaracaoPreparada, atributos);
