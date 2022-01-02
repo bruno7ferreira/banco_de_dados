@@ -1,5 +1,7 @@
 package praticandoNovamente.DAO;
 
+import praticandoNovamente.FabricaConexao;
+
 import java.sql.Connection;
 import java.sql.SQLException;
 
@@ -15,6 +17,8 @@ public class DAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        conexao = FabricaConexao.getConexao();
+        return conexao;
     }
 
 }
